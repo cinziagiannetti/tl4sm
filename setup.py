@@ -8,13 +8,13 @@ with open("README.md", "r") as fh:
 setup(
   name = 'tl4sm',         # How you named your package folder (MyLib)
   packages = ['tl4sm'],   # Chose the same as "name"
-  version = '0.11',      # Start with a small number and increase it with every change you make
+  version = '0.12',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'This library performs transfer learning for time series classification between different data time series using a ConvLSTM2D auto-encoder architecture. Two transfer learning types are provided as options - fine-tuning a given number of layers, or re-using the pre-trained model weights as initialisation step. The output returns the f_score, accuracy, and training time.',   # Give a short description about your library
   author = 'Aniekan Essien & Cinzia Giannetti',                   # Type in your name
   author_email = 'nakessien@outlook.com',      # Type in your E-Mail
   url = 'https://github.com/nakessien/tl4sm',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/nakessien/tl4sm/archive/0.11.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/nakessien/tl4sm/archive/0.12.tar.gz',    # I explain this later on
   keywords = ['Transfer Learning', 'Time Series Classification', 'ConvLSTM2D', 'Smart Manufacturing', 'Industry 4.0'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'numpy',
