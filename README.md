@@ -36,8 +36,7 @@ The package can be installed from PyPI using the following code
 This package was designed with ease-of-use in mind. Performing a TL experiment couldn't be easier. The only thing to do to get started with this project is setup the folders according to the structure above. After this, simply run the code below. Some parameters can be played around, and all the experimental parameters are included in the xx_experiment_1.csv spreadsheet.
 
 `from tl4sm import perform_experiment`
-`#perform the TL experiment using the experimental settings from the spreadsheet
-perform_experiment(resFile, file_name, n_test, model_, n_out, verbose)`
+`perform_experiment(resFile, file_name, n_test, model_, n_out, verbose)`
 
 For more details about the individual helper functions and the entire project, run the jupyter notebook here
 
