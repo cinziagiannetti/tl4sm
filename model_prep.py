@@ -14,7 +14,9 @@ from prepare_data import to_supervised
 from keras.utils import to_categorical
 from numpy import argmax
 from sklearn.metrics import confusion_matrix, f1_score, accuracy_score, classification_report
-from collections import Counter
+
+
+
 
 #function to bin data and return dataframe
 def bin_data(dataset, med, high):
