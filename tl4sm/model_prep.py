@@ -147,7 +147,7 @@ def evaluate_model(train, test, n_input, n_length, batch_size, lr, source, exp_n
     newpath = '../Results/Files/'
     if not os.path.exists(newpath):
         os.makedirs(newpath)
-    DataFrame(df).to_csv('../Results/Files/2DConvLSTMAE_TL_'+str(exp_num)+'.csv')
+    DataFrame(df, columns=['pred', 'actual']).to_csv('../Results/Files/2DConvLSTMAE_TL_'+str(exp_num)+'.csv')
     cm = confusion_matrix(test1, YPred)
     print(cm)
     f1 = f1_score(test1, YPred, average='weighted')
