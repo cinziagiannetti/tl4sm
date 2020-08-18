@@ -88,13 +88,3 @@ def perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med, 
         #output to experiment result file
         df_exp.to_csv(resFile, index=False)
        
-import os
-file_name = '../Data/'
-files = [f for f in os.listdir('../Data/')]
-model_ = '../Models/model_'
-resFile='../Results/grid_search_baseline.csv'
-baseline = read_csv(resFile, index_col=0, header=0)
-n_test = 10000
-n_out=10
-verbose=2
-perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med=40, high=100)
