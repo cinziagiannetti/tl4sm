@@ -105,11 +105,12 @@ def build_model(train, epochs, batch_size, lr, n_steps, n_length, n_input, sourc
 def forecast(model, history, n_steps, n_length, n_input):
     # flatten data
     data = array(history)
+    cols = data.shape[2]
     data = data.reshape((data.shape[0]*data.shape[1], data.shape[2]))
     # retrieve last observations for input data
     input_ = data[-n_input:, :]
     # reshape into [samples, timesteps, rows, cols, channels]
-    input_x = input_.reshape((1, n_steps, 1, n_length, 2))
+    input_x = input_.reshape((1, n_steps, 1, n_length, cols))
     # forecast the next week
     yhat = model.predict(input_x, verbose=0)
     # we only want the vector forecast
