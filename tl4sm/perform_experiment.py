@@ -3,6 +3,7 @@ from tl4sm.prepare_data import split_dataset
 from numpy import array, stack
 from pandas import read_csv, DataFrame
 from pathlib import Path
+from sklearn.preprocessing import LabelEncoder
 
 
 
@@ -24,9 +25,9 @@ def perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med, 
         #Batch Size
         batch_size= int(row['Batch'])
         #Source
-        source = int(row['Source'])
+        source = row['Source']
         #Target
-        target = int(row['Target'])
+        target = row['Target']
         #Length
         n_length = int(row['Length'])
         #TL type
@@ -41,8 +42,15 @@ def perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med, 
         dataset = read_csv(file_name+str(target)+'.csv', header=0, index_col=0)
         #fill NANs
         dataset = dataset.fillna(method='ffill')
+        #specify target
+        dataset['y'] = dataset['PM2.5']
+        dataset.drop(['PM2.5', 'station'], axis=1, inplace=True)
         #bin data
-        dataset = bin_data(dataset, med, high)
+        bin_data(dataset, 'y', med, high)
+        #convert categorical to label
+        labelEncoder = LabelEncoder()
+        labelEncoder.fit(dataset['wd'])
+        dataset['wd'] = labelEncoder.transform(dataset['wd'])        
         # split into train and test
         train, test = split_dataset(dataset.values, n_test)        
         #run experiments
@@ -79,3 +87,14 @@ def perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med, 
         df_exp['F1_Score'], df_exp['Accuracy_Score'], df_exp['Train Time'] = df_res['F1_Score'], df_res['Accuracy_Score'], df_res['Train Time']
         #output to experiment result file
         df_exp.to_csv(resFile, index=False)
+       
+import os
+file_name = '../Data/'
+files = [f for f in os.listdir('../Data/')]
+model_ = '../Models/model_'
+resFile='../Results/grid_search_baseline.csv'
+baseline = read_csv(resFile, index_col=0, header=0)
+n_test = 10000
+n_out=10
+verbose=2
+perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med=40, high=100)

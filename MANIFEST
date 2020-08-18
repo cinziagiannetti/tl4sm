@@ -2,7 +2,6 @@
 README.txt
 setup.cfg
 setup.py
-tl4sm\__init__.py
 tl4sm\model_prep.py
 tl4sm\perform_experiment.py
 tl4sm\prepare_data.py
