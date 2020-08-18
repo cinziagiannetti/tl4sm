@@ -1,4 +1,4 @@
-from prepare_data import split_dataset
+from tl4sm.prepare_data import split_dataset
 from numpy import array, stack
 from pandas import read_csv, DataFrame
 from pathlib import Path
@@ -10,7 +10,7 @@ from keras.layers import Dense, LSTM, BatchNormalization, RepeatVector, ConvLSTM
 from keras.layers import Flatten
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras import optimizers
-from prepare_data import to_supervised
+from tl4sm.prepare_data import to_supervised
 from keras.utils import to_categorical
 from numpy import argmax
 from sklearn.metrics import confusion_matrix, f1_score, accuracy_score, classification_report
