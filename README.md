@@ -11,6 +11,7 @@
 # Installation
 
   - Type `pip install tl4sm` to install the most recent version (0.19)
+  - Python 3.7 is required.
   
 # Usage
 After installation, the module is called using `import tl4sm` to access the submodules therein. 
