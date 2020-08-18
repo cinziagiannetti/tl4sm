@@ -14,7 +14,7 @@ from tl4sm.prepare_data import to_supervised
 from keras.utils import to_categorical
 from numpy import argmax
 from sklearn.metrics import confusion_matrix, f1_score, accuracy_score, classification_report
-
+import os
 
 
 
@@ -143,6 +143,10 @@ def evaluate_model(train, test, n_input, n_length, batch_size, lr, source, exp_n
     df = stack((YPred, test1))
     df = df.transpose()
     df = df.reshape(df.shape[1], 2)
+    #check and store in directory
+    newpath = '../Results/Files/'
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
     DataFrame(df).to_csv('../Results/Files/2DConvLSTMAE_TL_'+str(exp_num)+'.csv')
     cm = confusion_matrix(test1, YPred)
     print(cm)
