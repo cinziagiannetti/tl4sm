@@ -19,10 +19,10 @@ from sklearn.metrics import confusion_matrix, f1_score, accuracy_score, classifi
 
 
 #function to bin data and return dataframe
-def bin_data(dataset, med, high):
+def bin_data(dataset, target, med, high):
     dataset['bin'] = 0
-    dataset['bin'][(dataset['intSpeed'] < high) & (dataset['intSpeed'] > med)] = 1
-    dataset['bin'][(dataset['intSpeed'] >= high)] = 2
+    dataset['bin'][(dataset[target] < high) & (dataset[target] > med)] = 1
+    dataset['bin'][(dataset[target] >= high)] = 2
     return dataset
 
 #function to view the training history of each model
