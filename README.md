@@ -20,11 +20,6 @@ After installation, the module is called using `import tl4sm` to access the subm
 
 Below is a practical example of tl4sm_generic for transfer learning using the six cities Beijing air quality data, which can be found [here](https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data).
 
-```sh
-from tl4sm import perform_experiment as pf
-from pandas import read_csv
-import os
-```
 First, we import the required function from the `tl4sm` package, in this case, the `perform_experiment` function. We also import the `read_csv` function from `pandas` as well to read in our input experimental setup file. 
 
 Next, we specify our data folder and get the list of all csv files inside there. The third step is where we specify the location where the models will be saved. For this project, it is inside the `Models` folder, which is specified by the `model_` variable. 
@@ -49,7 +44,11 @@ Finally, we provide the location of our input experimental setup csv file (i.e. 
     
 See the code below.
 
+
 ```sh
+from tl4sm import perform_experiment as pf
+from pandas import read_csv
+import os
 file_name = '../Data/'
 files = [f for f in os.listdir('../Data/')]
 model_ = '../Models/model_'
