@@ -18,7 +18,7 @@ After installation, the module is called using `import tl4sm` to access the subm
 
 ### Example 
 
-[Here](https://github.com/nakessien/tl4sm/blob/master/Sample/Code/tl4sm_tutorial.ipynb) is a practical example of tl4sm_generic for transfer learning using the six cities Beijing air quality data, which can be found [here](https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data).
+Below is a practical example of tl4sm_generic for transfer learning using the six cities Beijing air quality data, which can be found [here](https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data).
 
 ```sh
 from tl4sm import perform_experiment as pf
