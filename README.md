@@ -49,28 +49,26 @@ See the code below.
 from tl4sm import perform_experiment as pf
 from pandas import read_csv
 import os
+
+
 file_name = '../Data/'
 files = [f for f in os.listdir('../Data/')]
 model_ = '../Models/model_'
 resFile='../Results/grid_search_baseline.csv'
 
-```
-
-After this, we specify the model training parameters. The `n_test` variable represents the number of training rows that will be reserved for the model validation. It can either be passed as an absolute value (e.g. 10,000 records) or as a percentage of the dataset (i.e. 0.2 for 20% of the data).
-
-```sh
 n_test = 100
 n_out=10
 verbose=2
+
+pf.perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med=40, high=100)
 ```
+
+After this, we specify the model training parameters. The `n_test` variable represents the number of training rows that will be reserved for the model validation. It can either be passed as an absolute value (e.g. 10,000 records) or as a percentage of the dataset (i.e. 0.2 for 20% of the data).
 
 The `n_out` variable represents the number of predictive future steps that is required. The `verbose` parameter specifies the verbosity of the model training (similar to verbose in `keras`).
 
 In the final step, we call the `perform_experiment` function accordingly
 
-```sh
-pf.perform_experiment(resFile, file_name, n_test, model_, n_out, verbose, med=40, high=100)
-```
 
     - resFile - `[str]` this specifies the location of the input experimental setup csv.
     - file_name - `[str]` this specifies the location that contains the input datasets (i.e. `../Data/`)
